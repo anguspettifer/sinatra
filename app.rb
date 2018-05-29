@@ -1,4 +1,5 @@
 require 'sinatra'
+require_relative 'ruby_code'
 
 get '/' do
   'hello Ben!'
@@ -9,7 +10,14 @@ get '/secret' do
 end
 
 get '/cat' do
-  "<div style='border: 3px dashed red'>
-    <img src='http://bit.ly/1eze8aE'/>
-  </div>"
+  @variable = ["ben", "angus"].sample
+  erb(:index)
+end
+
+get '/erb' do
+  erb "Hi there, Visitor"
+end
+
+get '/erb_2' do
+  erb "Hi there, visitor 2 <%= 2 + 2 %>"
 end
