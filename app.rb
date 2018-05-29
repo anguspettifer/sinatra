@@ -10,7 +10,7 @@ get '/secret' do
 end
 
 get '/cat' do
-  @variable = ["ben", "angus"].sample
+  @name = ["ben", "angus"].sample
   erb(:index)
 end
 
@@ -20,4 +20,13 @@ end
 
 get '/erb_2' do
   erb "Hi there, visitor 2 <%= 2 + 2 %>"
+end
+
+get '/random-cat' do
+
+end
+
+get '/named-cat' do
+  @name = params[:apple]
+  erb :index
 end
